@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP H11AA
+D Optoacoplador a transistor, DIP-6, 1.6mA
+K High Speed Optocoupler
+$ENDCMP
+#
+#End Doc Library

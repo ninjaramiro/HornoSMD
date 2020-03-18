@@ -1,0 +1,42 @@
+16:40:43 **** Incremental Build of configuration Release for project ADC_1 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: ADC_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC_1.map -mmcu=atmega16 -o "ADC_1.elf"  ./ADC.o ./USART.o ./display.o ./inicioUc.o ./lcd.o ./main.o ./medicion_ADC.o ./spi.o   
+Finished building target: ADC_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC_1.elf  >"ADC_1.lss"
+Finished building: ADC_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_1.elf  "ADC_1.hex"
+Finished building: ADC_1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ADC_1.elf  "ADC_1.eep"
+Finished building: ADC_1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 ADC_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    3546 bytes (21.6% Full)
+(.text + .data + .bootloader)
+
+Data:        154 bytes (15.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:40:43 Build Finished. 0 errors, 0 warnings. (took 125ms)
+

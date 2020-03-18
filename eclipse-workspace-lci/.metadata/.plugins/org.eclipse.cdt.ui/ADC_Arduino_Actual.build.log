@@ -1,0 +1,74 @@
+17:55:24 **** Incremental Build of configuration Release for project ADC_Arduino_Actual ****
+make all 
+Building file: ../ADC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"ADC.d" -MT"ADC.o" -c -o "ADC.o" "../ADC.c"
+../ADC.c: In function 'ReadADC_7380':
+../ADC.c:34:12: warning: unused variable 'byte' [-Wunused-variable]
+    uint8_t byte,data_high,data_low;
+            ^
+Finished building: ../ADC.c
+ 
+Building file: ../USART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"USART.d" -MT"USART.o" -c -o "USART.o" "../USART.c"
+../USART.c: In function 'USART_Flush':
+../USART.c:104:16: warning: variable 'uchDummy' set but not used [-Wunused-but-set-variable]
+  unsigned char uchDummy;
+                ^
+Finished building: ../USART.c
+ 
+Building file: ../inicioUc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"inicioUc.d" -MT"inicioUc.o" -c -o "inicioUc.o" "../inicioUc.c"
+Finished building: ../inicioUc.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:58:2: warning: implicit declaration of function 'USART_Flush' [-Wimplicit-function-declaration]
+  USART_Flush();
+  ^
+Finished building: ../main.c
+ 
+Building file: ../spi.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"spi.d" -MT"spi.o" -c -o "spi.o" "../spi.c"
+Finished building: ../spi.c
+ 
+Building target: ADC_Arduino_v2_funciona.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC_Arduino_v2_funciona.map -mmcu=atmega328p -o "ADC_Arduino_v2_funciona.elf"  ./ADC.o ./USART.o ./inicioUc.o ./main.o ./spi.o   
+Finished building target: ADC_Arduino_v2_funciona.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC_Arduino_v2_funciona.elf  >"ADC_Arduino_v2_funciona.lss"
+Finished building: ADC_Arduino_v2_funciona.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_Arduino_v2_funciona.elf  "ADC_Arduino_v2_funciona.hex"
+Finished building: ADC_Arduino_v2_funciona.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ADC_Arduino_v2_funciona.elf  "ADC_Arduino_v2_funciona.eep"
+Finished building: ADC_Arduino_v2_funciona.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p ADC_Arduino_v2_funciona.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     658 bytes (2.0% Full)
+(.text + .data + .bootloader)
+
+Data:         25 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:55:24 Build Finished. 0 errors, 3 warnings. (took 368ms)
+

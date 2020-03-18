@@ -1,0 +1,2 @@
+ExcludedKernelSource=CVS/\:.svn/\:{arch}/\:.arch-ids/\:.bzr/\:debian/\:.git/\:
+eclipse.preferences.version=1

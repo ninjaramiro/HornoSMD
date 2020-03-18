@@ -1,0 +1,47 @@
+13:33:23 **** Incremental Build of configuration Release for project PTH-ATMEGA8 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:1:0:
+../main.h:11:0: warning: "F_CPU" redefined
+ #define F_CPU 8000000
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../main.c
+ 
+Building target: PTH-ATMEGA8.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,PTH-ATMEGA8.map -mmcu=atmega8 -o "PTH-ATMEGA8.elf"  ./USART.o ./comandos.o ./gen_pulsos.o ./inicio.o ./main.o   
+Finished building target: PTH-ATMEGA8.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S PTH-ATMEGA8.elf  >"PTH-ATMEGA8.lss"
+Finished building: PTH-ATMEGA8.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex PTH-ATMEGA8.elf  "PTH-ATMEGA8.hex"
+Finished building: PTH-ATMEGA8.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex PTH-ATMEGA8.elf  "PTH-ATMEGA8.eep"
+Finished building: PTH-ATMEGA8.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 PTH-ATMEGA8.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    2944 bytes (35.9% Full)
+(.text + .data + .bootloader)
+
+Data:        132 bytes (12.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:33:23 Build Finished. 0 errors, 1 warnings. (took 587ms)
+

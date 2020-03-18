@@ -1,0 +1,48 @@
+### Module positions - created on Tue Aug 29 12:02:38 2017 ###
+### Printed by Pcbnew version kicad 4.0.6-e0-6349~53~ubuntu16.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val           Package                          PosX       PosY       Rot  Side
+C101      22p           C_0805_HandSoldering         145.0340   -71.3740    0.0000  top
+C102      22p           C_0805_HandSoldering         145.0340   -74.5490    0.0000  top
+C103      100n          C_0805_HandSoldering         167.6400   -70.1040    0.0000  top
+C104      100n          C_0805_HandSoldering         139.3190   -65.6590    0.0000  top
+C105      100n          C_0805_HandSoldering         157.0990   -59.5630   90.0000  top
+C106      100n          C_0805_HandSoldering         167.6400   -72.3900    0.0000  top
+C108      100n          C_0805_HandSoldering         115.1890   -81.9150  270.0000  top
+C109      100n          C_0805_HandSoldering         170.6880   -59.1820    0.0000  top
+C110      100n          C_0805_HandSoldering         178.3080   -59.0550  270.0000  top
+C112      100n          C_0805_HandSoldering         113.6650   -68.7070  270.0000  top
+C113      100n          C_0805_HandSoldering         170.6880   -61.2140    0.0000  top
+C114      100n          C_0805_HandSoldering         178.1810   -67.3100  270.0000  top
+C115      100n          C_0805_HandSoldering         170.6880   -63.2460    0.0000  top
+C116      100n          C_0805_HandSoldering         178.1810   -75.5650  270.0000  top
+C117      100n          C_0805_HandSoldering         145.0340   -69.3420  180.0000  top
+C118      100n          C_0805_HandSoldering         158.3690   -83.8200  270.0000  top
+D201      1n4007        D_SMA_Handsoldering          139.1920   -96.2660  180.0000  top
+D202      1n4007        D_SMA_Handsoldering          164.8460   -96.2660    0.0000  top
+Q101      BC817         SOT-23_Handsoldering         141.9860   -46.3550    0.0000  top
+Q102      BC817         SOT-23_Handsoldering         142.6210   -83.8200  270.0000  top
+Q201      BC817         SOT-23_Handsoldering         147.8280   -96.6470   90.0000  top
+Q202      BC817         SOT-23_Handsoldering         155.9560   -97.2820  270.0000  top
+R101      10k           R_0805_HandSoldering         167.7670   -46.9900  180.0000  top
+R102      10k           R_0805_HandSoldering         144.1450   -65.6590  180.0000  top
+R103      1k            R_0805_HandSoldering         172.6730   -46.9900  180.0000  top
+R105      1k            R_0805_HandSoldering         137.4140   -46.7360  270.0000  top
+R106      470           R_0805_HandSoldering         148.2090   -83.8200   90.0000  top
+R107      470           R_0805_HandSoldering         156.3370   -83.8200   90.0000  top
+R110      1k            R_0805_HandSoldering         174.2440   -60.3250   90.0000  top
+R111      TBD           R_0805_HandSoldering         176.2760   -60.3250   90.0000  top
+R112      1k            R_0805_HandSoldering         174.1170   -68.5800   90.0000  top
+R113      TBD           R_0805_HandSoldering         176.1490   -68.5800   90.0000  top
+R114      10k           R_0805_HandSoldering         146.0500   -83.8200  270.0000  top
+R115      1k            R_0805_HandSoldering         174.1170   -74.1680   90.0000  top
+R116      TBD           R_0805_HandSoldering         176.1490   -76.8350   90.0000  top
+R201      10k           R_0805_HandSoldering         151.0030   -96.9010   90.0000  top
+R202      10k           R_0805_HandSoldering         153.0350   -96.9010   90.0000  top
+R203      TBD           R_0805_HandSoldering         144.9070   -96.7740   90.0000  top
+R204      TBD           R_0805_HandSoldering         158.8770   -97.0280   90.0000  top
+R211      470           R_0805_HandSoldering         150.6220   -83.8200   90.0000  top
+R212      470           R_0805_HandSoldering         154.1780   -83.8200   90.0000  top
+U101      ATMEGA16A-AU  TQFP-44_10x10mm_Pitch0.8mm   156.8450   -71.7550    0.0000  top
+## End

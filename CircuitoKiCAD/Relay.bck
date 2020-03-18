@@ -1,0 +1,27 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP FINDER-36.11.4001
+D FINDER 36.11.4001, Single Pole Relay, Sugar Cube, 10A
+K Single Pole Relay Sugar Cube
+F http://gfinder.findernet.com/assets/Series/356/S36EN.pdf
+$ENDCMP
+#
+$CMP FINDER-40.31
+D FINDER 40.31, Single Pole Relay, 3.5mm Pitch, 10A
+K Single Pole Relay
+F http://gfinder.findernet.com/assets/Series/353/S40EN.pdf
+$ENDCMP
+#
+$CMP FINDER-40.51
+D FINDER 40.51, Single Pole Relay, 5mm Pitch, 10A
+K Single Pole Relay
+F http://gfinder.findernet.com/assets/Series/353/S40EN.pdf
+$ENDCMP
+#
+$CMP RM50-xx11
+D Single Pole Relay, Sugar Cube, 15A
+K Single Pole Relay Sugar Cube
+F http://www.relpol.pl/en/content/download/13683/165953/file/e_RM50.pdf
+$ENDCMP
+#
+#End Doc Library

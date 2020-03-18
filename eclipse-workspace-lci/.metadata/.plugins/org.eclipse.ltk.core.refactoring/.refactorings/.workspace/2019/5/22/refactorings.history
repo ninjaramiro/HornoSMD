@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ADC_Actual&apos; to &apos;ADC_4&apos;" description="Rename resource &apos;ADC_Actual&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/ADC_Actual" name="ADC_4" stamp="1559076961674" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ADC_ConInterrupcion&apos; to &apos;ADC_Actual&apos;" description="Rename resource &apos;ADC_ConInterrupcion&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/ADC_ConInterrupcion" name="ADC_Actual" stamp="1559077000171" updateReferences="true"/>
+</session>

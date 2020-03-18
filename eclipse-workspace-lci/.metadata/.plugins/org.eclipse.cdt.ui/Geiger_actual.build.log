@@ -1,0 +1,20 @@
+11:33:33 **** Incremental Build of configuration Release for project Geiger_actual ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Geiger_actual.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7396 bytes (22.6% Full)
+(.text + .data + .bootloader)
+
+Data:        242 bytes (11.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:33:33 Build Finished. 0 errors, 0 warnings. (took 78ms)
+

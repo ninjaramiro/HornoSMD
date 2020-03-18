@@ -1,0 +1,20 @@
+20:15:28 **** Incremental Build of configuration Release for project ADC_Actual ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 ADC_Actual.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    3764 bytes (23.0% Full)
+(.text + .data + .bootloader)
+
+Data:        184 bytes (18.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:15:28 Build Finished. 0 errors, 0 warnings. (took 72ms)
+

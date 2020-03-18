@@ -1,0 +1,62 @@
+10:39:14 **** Incremental Build of configuration Release for project Termostato ****
+make all 
+Building file: ../display.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"display.d" -MT"display.o" -c -o "display.o" "../display.c"
+Finished building: ../display.c
+ 
+Building file: ../inicioUc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"inicioUc.d" -MT"inicioUc.o" -c -o "inicioUc.o" "../inicioUc.c"
+Finished building: ../inicioUc.c
+ 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+Finished building: ../lcd.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../medicion_ADC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"medicion_ADC.d" -MT"medicion_ADC.o" -c -o "medicion_ADC.o" "../medicion_ADC.c"
+Finished building: ../medicion_ADC.c
+ 
+Building target: Termostato.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Termostato.map -mmcu=atmega16 -o "Termostato.elf"  ./display.o ./inicioUc.o ./lcd.o ./main.o ./medicion_ADC.o   
+Finished building target: Termostato.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Termostato.elf  >"Termostato.lss"
+Finished building: Termostato.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Termostato.elf  "Termostato.hex"
+Finished building: Termostato.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Termostato.elf  "Termostato.eep"
+Finished building: Termostato.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Termostato.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    3412 bytes (20.8% Full)
+(.text + .data + .bootloader)
+
+Data:        134 bytes (13.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:39:15 Build Finished. 0 errors, 0 warnings. (took 859ms)
+

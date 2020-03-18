@@ -1,0 +1,54 @@
+20:01:54 **** Incremental Build of configuration Release for project PTH-viejo-no-compila ****
+Info: Internal Builder is used for build
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -c -o inicio.o ../inicio.c 
+../inicio.c: In function ‘Inicio_Timer0’:
+../inicio.c:75:3: error: ‘TCCR0A’ undeclared (first use in this function)
+   TCCR0A = 0b00000000;
+   ^
+../inicio.c:75:3: note: each undeclared identifier is reported only once for each function it appears in
+../inicio.c:76:2: error: ‘TCCR0B’ undeclared (first use in this function)
+  TCCR0B = 0b00000011; // prescaler 64
+  ^
+In file included from ../inicio.c:2:0:
+../inicio.c:77:11: error: ‘TIMSK0’ undeclared (first use in this function)
+  SET_BIT (TIMSK0,TOIE0); // habilito la interrupción por overflow
+           ^
+../macros.h:84:39: note: in definition of macro ‘SET_BIT’
+ #define SET_BIT(registro, bitNumero)  registro |= (SET<<bitNumero)
+                                       ^
+../inicio.c:78:13: error: ‘TIFR0’ undeclared (first use in this function)
+  CLEAR_BIT (TIFR0, TOV0);  // aseguro que no haya ninguna interrupción por overflow
+             ^
+../macros.h:88:41: note: in definition of macro ‘CLEAR_BIT’
+ #define CLEAR_BIT(registro, bitNumero)  registro &= ~(SET<<bitNumero)
+                                         ^
+../inicio.c: In function ‘Inicio_PWM’:
+../inicio.c:89:1: error: ‘TCCR1C’ undeclared (first use in this function)
+ TCCR1C = 0b00000000;
+ ^
+../inicio.c:90:1: error: ‘TIMSK1’ undeclared (first use in this function)
+ TIMSK1 = 0b00000000; // Sin interrupcion
+ ^
+../inicio.c: In function ‘Inicio_Timer2’:
+../inicio.c:106:3: error: ‘TCCR2A’ undeclared (first use in this function)
+   TCCR2A = 0b00000000;
+   ^
+../inicio.c:107:2: error: ‘TCCR2B’ undeclared (first use in this function)
+  TCCR2B = 0b00000010; // prescaler 8
+  ^
+In file included from ../inicio.c:2:0:
+../inicio.c:108:11: error: ‘TIMSK2’ undeclared (first use in this function)
+  SET_BIT (TIMSK2,TOIE2); // habilito la interrupción por overflow
+           ^
+../macros.h:84:39: note: in definition of macro ‘SET_BIT’
+ #define SET_BIT(registro, bitNumero)  registro |= (SET<<bitNumero)
+                                       ^
+../inicio.c:109:13: error: ‘TIFR2’ undeclared (first use in this function)
+  CLEAR_BIT (TIFR2, TOV2);  // aseguro que no haya ninguna interrupción por overflow
+             ^
+../macros.h:88:41: note: in definition of macro ‘CLEAR_BIT’
+ #define CLEAR_BIT(registro, bitNumero)  registro &= ~(SET<<bitNumero)
+                                         ^
+
+20:01:55 Build Failed. 10 errors, 0 warnings. (took 1s.176ms)
+

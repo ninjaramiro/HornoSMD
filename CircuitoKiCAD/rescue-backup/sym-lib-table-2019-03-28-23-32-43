@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name Actual-rescue)(type Legacy)(uri ${KIPRJMOD}/Actual-rescue.lib)(options "")(descr ""))
+  (lib (name Triac)(type Legacy)(uri ${KIPRJMOD}/Triac.lib)(options "")(descr ""))
+  (lib (name Relay1)(type Legacy)(uri ${KIPRJMOD}/Relay.lib)(options "")(descr ""))
+  (lib (name h11aa)(type Legacy)(uri ${KIPRJMOD}/h11aa.lib)(options "")(descr ""))
+)

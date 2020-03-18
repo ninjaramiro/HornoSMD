@@ -1,0 +1,20 @@
+19:22:32 **** Incremental Build of configuration Release for project ADC_ConInterrupcion ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 ADC_ConInterrupcion.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    3720 bytes (22.7% Full)
+(.text + .data + .bootloader)
+
+Data:        176 bytes (17.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:22:32 Build Finished. 0 errors, 0 warnings. (took 80ms)
+

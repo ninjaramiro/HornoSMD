@@ -1,0 +1,206 @@
+
+/** \file	main.c 
+ *  \brief	Archivo que llama el inicio de todaslas maquinas de estado y cierra un bucle \n
+ *	infinito lamando a cada una.
+ */
+
+
+#define F_CPU 8000000UL
+
+#include <avr/io.h>
+#include <avr/wdt.h>
+#include <avr/interrupt.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+#include "macros.h"
+#include "inicioUc.h"
+#include "medicion_ADC.h"
+#include "display.h"
+
+/*****************************************************************************
+* Variables externas
+*****************************************************************************/
+extern volatile unsigned int		uContDisplay;									/* display.c, contador para la medicion de tiempos en el manejo del display */
+
+extern volatile float				ADC1;				/* medicion_ADC.c,  */
+extern volatile float		 		ADC2;			    /* medicion_ADC.c,  */
+extern volatile float				ADC3;				/* medicion_ADC.c,  */
+
+
+int main (void) {
+//	wdt_disable();					/* por las dudas deshabilito el watchdog timer para el inicio de todo el programa */
+//	cli();							/* Deshabilito las interrupciones globales */
+
+	ADC1 = 0.00;
+	ADC2 = 0.00;
+	ADC3 = 0.00;
+	Inicio_Puertos ();
+//	Inicio_Timer0 ();
+	Inicio_Display ();
+//	Inicio_ADC();
+//	sei();	// Habilito las interrupciones
+
+//	wdt_enable(WDTO_2S);
+
+	while (1) {
+		Actualizar_Display ();
+		Medicion_ADC();
+
+//		wdt_reset();
+	}
+
+return 0;
+}
+
+
+ISR (TIMER0_COMP_vect) {
+
+	/*------------------------------------------------------------------------------------*
+	 * Contadores de las máquinas de estado de Display
+	 *------------------------------------------------------------------------------------*/
+	/* contador para el refresco del display */
+	if (uContDisplay != 0){
+		uContDisplay--;
+	}
+
+
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de operacion del buzzer
+//	 *------------------------------------------------------------------------------------*/
+//	if (ulContTiempoSilenciarAlarma != 0) {
+//		ulContTiempoSilenciarAlarma--;
+//		CLEAR_BIT(BUZZER_PORT, BUZZER);
+//	}
+//	else {
+//		if (chBuzzerModo == BUZZER_CORTO) {
+//			uContBuzzerON = BUZZER_TIEMPO_ON_CORTO;
+//			chBuzzerModo = BUZZER_OFF;
+//		}
+//		else if (chBuzzerModo == BUZZER_LARGO) {
+//			uContBuzzerON = BUZZER_TIEMPO_ON_LARGO;
+//			chBuzzerModo = BUZZER_OFF;
+//		}
+//		else if ((chBuzzerModo == BUZZER_INTERMITENTE) && (uContBuzzerON == 0) && (uContBuzzerOFF == 0)){
+//			uContBuzzerON = BUZZER_TIEMPO_ON;
+//		}
+//
+//		if (uContBuzzerON > 0){
+//			SET_BIT(BUZZER_PORT, BUZZER);
+//			uContBuzzerON--;
+//			if ((uContBuzzerON == 0) && (chBuzzerModo == BUZZER_INTERMITENTE)){
+//				uContBuzzerOFF = BUZZER_TIEMPO_OFF;
+//			}
+//		}
+//		else if (uContBuzzerOFF > 0) {
+//			CLEAR_BIT(BUZZER_PORT, BUZZER);
+//			uContBuzzerOFF--;
+//			if ((uContBuzzerOFF == 0) && (chBuzzerModo == BUZZER_INTERMITENTE)){
+//				uContBuzzerON = BUZZER_TIEMPO_ON;
+//			}
+//		}
+//		else{
+//			CLEAR_BIT(BUZZER_PORT, BUZZER);
+//		}
+//	}
+//
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de las máquinas de estado de entradas discretas
+//	 *------------------------------------------------------------------------------------*/
+//	/* Actualización del tiempo de integración y estado de las entradas discretas */
+//	if (uTiempoIntegracionEntradas < TIEMPO_INTEGRACION_ENTRADAS) {
+//		uTiempoIntegracionEntradas++;
+//		for (int i=0; i<CANTIDAD_ENTRADAS; i++){
+//			if ((uEstadoEntradasInstantaneas & (SET<<i))!=0){
+//				uValorIntegracionEntradas[i] ++;
+//			}
+//		}
+//	}
+//	else {
+//		for(int i=0; i<CANTIDAD_ENTRADAS; i++){
+//			if ((uValorIntegracionEntradas[i] >= VALOR_INTEGRACION_ENTRADAS) && ((uEstadoEntradas & (SET<<i)) == 0)) {
+//				SET_BIT(uEstadoEntradas, i);
+//				SET_BIT(uFlagEntradasActivadas, i);
+//				uTimeoutEntradas = TIMEOUT_ENTRADAS;
+//			}
+//			else if ((uValorIntegracionEntradas[i] < VALOR_INTEGRACION_ENTRADAS) && ((uEstadoEntradas & (SET<<i)) != 0)) {
+//				CLEAR_BIT(uEstadoEntradas, i);
+//				SET_BIT(uFlagEntradasLiberadas, i);
+//				uTimeoutEntradas = TIMEOUT_ENTRADAS;
+//			}
+//			uValorIntegracionEntradas[i] = 0;
+//		}
+//		uTiempoIntegracionEntradas = 0;
+//	}
+//
+//	/* descuento del Tiemout del flag de las entradas discretas */
+//	if (uTimeoutEntradas > 0)
+//		uTimeoutEntradas --;
+//
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de las máquinas de estado de alarmas
+//	 *------------------------------------------------------------------------------------*/
+//	/* conductimetro 1 */
+//	if (flCond1valoruS > flValorAlarmaCond1){
+//		if (uContTiempoAlarmaCond1 < uTiempoAlarmaCond1 * TIMER0_A_SEGUNDOS){
+//			uContTiempoAlarmaCond1++;
+//		}
+//	}
+//	else {
+//		if (uContTiempoAlarmaCond1 > 0){
+//			uContTiempoAlarmaCond1--;
+//		}
+//	}
+//
+//	/* conductimetro 2 */
+//	if (flCond2valoruS > flValorAlarmaCond2){
+//		if (uContTiempoAlarmaCond2 < uTiempoAlarmaCond2 * TIMER0_A_SEGUNDOS){
+//			uContTiempoAlarmaCond2++;
+//		}
+//	}
+//	else {
+//		if (uContTiempoAlarmaCond2 > 0){
+//			uContTiempoAlarmaCond2--;
+//		}
+//	}
+//
+//
+
+//
+//
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de las máquinas de estado de USART
+//	 *------------------------------------------------------------------------------------*/
+//	/* decremento del contador de tiempo para time out de espera de USART0 */
+//	if (uContTimeoutEsperaUSART0 != 0){
+//		uContTimeoutEsperaUSART0 --;
+//	}
+//
+//	/* decremento del contador de tiempo para time out de electura del buffer de recepcion */
+//	if (uContTimeoutLecturaRxUSART0 != 0){
+//		uContTimeoutLecturaRxUSART0 --;
+//	}
+//
+//	/* decremento del contador de tiempo para timeout de recepcion para cerrar el buffer */
+//	if (uContTimeoutRxUSART0 != 0){
+//		uContTimeoutRxUSART0 --;
+//	}
+//
+////	/* decremento del contador de tiempo para time out de envio del buffer de transmision */
+////	if (uContTimeoutTxUSART0 != 0){
+////		uContTimeoutTxUSART0 --;
+////	}
+//
+//	/* decremento del contador de tiempo para time out de electura del buffer de recepcion */
+//	if (uContTimeoutLecturaRxUSART1 != 0)
+//		uContTimeoutLecturaRxUSART1 --;
+//
+//	/* decremento del contador de tiempo para timeout de recepcion para cerrar el buffer */
+//	if (uContTimeoutRxUSART1 != 0)
+//		uContTimeoutRxUSART1 --;
+//
+//	/* decremento del contador de tiempo para time out de envio del buffer de transmision */
+//	if (uContTimeoutTxUSART1 != 0)
+//		uContTimeoutTxUSART1 --;
+}

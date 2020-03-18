@@ -1,0 +1,57 @@
+20:04:47 **** Build of configuration Release for project PTH2 ****
+make all 
+Building file: ../gen_pulsos.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"gen_pulsos.d" -MT"gen_pulsos.o" -c -o "gen_pulsos.o" "../gen_pulsos.c"
+Finished building: ../gen_pulsos.c
+ 
+Building file: ../inicio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"inicio.d" -MT"inicio.o" -c -o "inicio.o" "../inicio.c"
+Finished building: ../inicio.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:1:0:
+../main.h:11:0: warning: "F_CPU" redefined
+ #define F_CPU 8000000
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../main.c
+ 
+Building target: PTH2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,PTH2.map -mmcu=atmega328p -o "PTH2.elf"  ./gen_pulsos.o ./inicio.o ./main.o   
+Finished building target: PTH2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S PTH2.elf  >"PTH2.lss"
+Finished building: PTH2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex PTH2.elf  "PTH2.hex"
+Finished building: PTH2.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex PTH2.elf  "PTH2.eep"
+Finished building: PTH2.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p PTH2.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     792 bytes (2.4% Full)
+(.text + .data + .bootloader)
+
+Data:         11 bytes (0.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:04:48 Build Finished. 0 errors, 1 warnings. (took 926ms)
+

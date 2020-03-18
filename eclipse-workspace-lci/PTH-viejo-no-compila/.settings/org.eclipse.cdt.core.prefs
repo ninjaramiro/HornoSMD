@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/AVRDUDEOPTIONS/delimiter=\:
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/AVRDUDEOPTIONS/operation=replace
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/AVRDUDEOPTIONS/value=-pm328p -cusbtiny -F -V -u -B155
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/AVRTARGETMCU/delimiter=\:
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/AVRTARGETMCU/operation=replace
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/AVRTARGETMCU/value=atmega328
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/append=true
+environment/project/de.innot.avreclipse.configuration.app.release.968991894/appendContributed=true

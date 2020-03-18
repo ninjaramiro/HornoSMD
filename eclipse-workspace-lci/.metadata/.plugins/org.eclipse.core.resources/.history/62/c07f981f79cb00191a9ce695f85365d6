@@ -1,0 +1,21 @@
+
+/** \file	inicioUc.c
+ *  \brief	Contiene las funciones de inicio de los perisfericos del uc. \n
+ *	Asi como tambien funciones comunes a diferentes maquinas de estado.
+ */
+
+
+
+#include "inicioUc.h"
+#include "macros.h"
+
+#include <avr/io.h>
+#include <inttypes.h>
+#include <avr/sleep.h>
+
+void calculo_CPM (void) {	/* Funcion de inicio de los puertos de entrada/salida */
+
+
+}
+
+

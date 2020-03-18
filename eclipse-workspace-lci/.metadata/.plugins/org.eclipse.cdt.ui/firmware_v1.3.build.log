@@ -1,0 +1,6 @@
+10:11:12 **** Incremental Build of configuration Default for project firmware_v1.3 ****
+make all 
+make: *** No hay ninguna regla para construir el objetivo 'all'.  Alto.
+
+10:11:12 Build Finished (took 241ms)
+

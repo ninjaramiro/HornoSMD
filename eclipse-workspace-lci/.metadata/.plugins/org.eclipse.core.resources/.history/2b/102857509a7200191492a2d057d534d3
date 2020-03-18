@@ -1,0 +1,304 @@
+// http://extremeelectronics.co.in/avr-tutorials/interfacing-12-bit-spi-adc-mcp3204-with-avr-micro/
+
+/** \file	main.c 
+ *  \brief	Archivo que llama el inicio de todaslas maquinas de estado y cierra un bucle \n
+ *	infinito lamando a cada una.
+ */
+
+#define F_CPU 8000000UL
+
+#include <avr/io.h>
+#include <avr/wdt.h>
+#include <avr/interrupt.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <util/delay.h>
+
+//#include "USART0.h"
+
+#include "USART.h"
+#include "macros.h"
+#include "inicioUc.h"
+//#include "medicion_ADC.h"
+#include "display.h"
+#include "lcd.h"
+#include "ADC.h"
+
+/*****************************************************************************
+* Variables externas
+*****************************************************************************/
+extern volatile unsigned int		uContDisplay;									/* display.c, contador para la medicion de tiempos en el manejo del display */
+
+volatile uint16_t result; //Para el resultado del ADC
+uint8_t ADC_L;
+uint8_t ADC_H;
+
+int main (void) {
+
+//	wdt_disable();					/* por las dudas deshabilito el watchdog timer para el inicio de todo el programa */
+	cli();							/* Deshabilito las interrupciones globales */
+	TIFR=0; //Borro los flags de interrupcion de los timers
+//	ADC1 = 0.00;
+//	ADC2 = 0.00;
+//	ADC3 = 0.00;
+	Inicio_Puertos ();
+    Inicio_Timer0 ();
+	Inicio_Display ();
+//	Inicio_ADC();
+	//Initialize External ADC Module
+	InitADCEx();
+
+	Inicio_USART (9600);
+	sei();	// Habilito las interrupciones
+
+	//wdt_enable(WDTO_2S);
+
+	Actualizar_Display ();
+	LCDWriteStringXY(0,0,"ESPERANDO SEÑAL");
+
+
+	USART_Receive(); //Espero un caracter y bloqueo si no recibo
+
+	LCDWriteStringXY(0,0,"CAPTURANDO");
+
+char a=0;
+  _delay_ms (1000);
+  _delay_ms (1000);
+
+  while (1) {
+
+      //Read Channel Number 0
+ //     result=ReadADCEx(0);
+
+	//    USART_Transmit('C');
+
+//		ADC_L = result & 0xFF;
+//		ADC_H = result >> 8;
+//		USART_Transmit(ADC_L);
+//		USART_Transmit(ADC_H);
+
+//transmito los dos bytes
+//      USART_Transmit((uint8_t)(result & 0xFF)); // Byte low
+//      USART_Transmit((uint8_t)(result >> 8));   // Byte high
+
+
+      USART_Transmit(a); // Byte low
+
+      a++;
+      _delay_us (100);
+
+//		USART_Transmit(','); // Transmito separador
+
+//		USART_Transmit('\r');
+//		LCDWriteStringXY(0,0,"MCP3204 ADC Test");
+////		LCDWriteStringXY(0,1,"result = ");
+//		LCDWriteIntXY(0,1,ADC_H,5);
+//		LCDWriteIntXY(7,1,ADC_L,5);
+
+	//  Actualizar_Display ();
+
+//		wdt_reset();
+	}
+
+return 0;
+}
+
+
+ISR (TIMER0_COMP_vect) {
+	TCNT0 = 0;  // Reseteo el contador
+	/*------------------------------------------------------------------------------------*
+	 * Contadores de las máquinas de estado de Display
+	 *------------------------------------------------------------------------------------*/
+	/* contador para el refresco del display */
+	if (uContDisplay != 0){
+		uContDisplay--;
+	}
+	LCDWriteStringXY(1,1,"chau");
+
+//reti();
+}
+
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de operacion del buzzer
+//	 *------------------------------------------------------------------------------------*/
+//	if (ulContTiempoSilenciarAlarma != 0) {
+//		ulContTiempoSilenciarAlarma--;
+//		CLEAR_BIT(BUZZER_PORT, BUZZER);
+//	}
+//	else {
+//		if (chBuzzerModo == BUZZER_CORTO) {
+//			uContBuzzerON = BUZZER_TIEMPO_ON_CORTO;
+//			chBuzzerModo = BUZZER_OFF;
+//		}
+//		else if (chBuzzerModo == BUZZER_LARGO) {
+//			uContBuzzerON = BUZZER_TIEMPO_ON_LARGO;
+//			chBuzzerModo = BUZZER_OFF;
+//		}
+//		else if ((chBuzzerModo == BUZZER_INTERMITENTE) && (uContBuzzerON == 0) && (uContBuzzerOFF == 0)){
+//			uContBuzzerON = BUZZER_TIEMPO_ON;
+//		}
+//
+//		if (uContBuzzerON > 0){
+//			SET_BIT(BUZZER_PORT, BUZZER);
+//			uContBuzzerON--;
+//			if ((uContBuzzerON == 0) && (chBuzzerModo == BUZZER_INTERMITENTE)){
+//				uContBuzzerOFF = BUZZER_TIEMPO_OFF;
+//			}
+//		}
+//		else if (uContBuzzerOFF > 0) {
+//			CLEAR_BIT(BUZZER_PORT, BUZZER);
+//			uContBuzzerOFF--;
+//			if ((uContBuzzerOFF == 0) && (chBuzzerModo == BUZZER_INTERMITENTE)){
+//				uContBuzzerON = BUZZER_TIEMPO_ON;
+//			}
+//		}
+//		else{
+//			CLEAR_BIT(BUZZER_PORT, BUZZER);
+//		}
+//	}
+//
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de las máquinas de estado de entradas discretas
+//	 *------------------------------------------------------------------------------------*/
+//	/* Actualización del tiempo de integración y estado de las entradas discretas */
+//	if (uTiempoIntegracionEntradas < TIEMPO_INTEGRACION_ENTRADAS) {
+//		uTiempoIntegracionEntradas++;
+//		for (int i=0; i<CANTIDAD_ENTRADAS; i++){
+//			if ((uEstadoEntradasInstantaneas & (SET<<i))!=0){
+//				uValorIntegracionEntradas[i] ++;
+//			}
+//		}
+//	}
+//	else {
+//		for(int i=0; i<CANTIDAD_ENTRADAS; i++){
+//			if ((uValorIntegracionEntradas[i] >= VALOR_INTEGRACION_ENTRADAS) && ((uEstadoEntradas & (SET<<i)) == 0)) {
+//				SET_BIT(uEstadoEntradas, i);
+//				SET_BIT(uFlagEntradasActivadas, i);
+//				uTimeoutEntradas = TIMEOUT_ENTRADAS;
+//			}
+//			else if ((uValorIntegracionEntradas[i] < VALOR_INTEGRACION_ENTRADAS) && ((uEstadoEntradas & (SET<<i)) != 0)) {
+//				CLEAR_BIT(uEstadoEntradas, i);
+//				SET_BIT(uFlagEntradasLiberadas, i);
+//				uTimeoutEntradas = TIMEOUT_ENTRADAS;
+//			}
+//			uValorIntegracionEntradas[i] = 0;
+//		}
+//		uTiempoIntegracionEntradas = 0;
+//	}
+//
+//	/* descuento del Tiemout del flag de las entradas discretas */
+//	if (uTimeoutEntradas > 0)
+//		uTimeoutEntradas --;
+//
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de las máquinas de estado de alarmas
+//	 *------------------------------------------------------------------------------------*/
+//	/* conductimetro 1 */
+//	if (flCond1valoruS > flValorAlarmaCond1){
+//		if (uContTiempoAlarmaCond1 < uTiempoAlarmaCond1 * TIMER0_A_SEGUNDOS){
+//			uContTiempoAlarmaCond1++;
+//		}
+//	}
+//	else {
+//		if (uContTiempoAlarmaCond1 > 0){
+//			uContTiempoAlarmaCond1--;
+//		}
+//	}
+//
+//	/* conductimetro 2 */
+//	if (flCond2valoruS > flValorAlarmaCond2){
+//		if (uContTiempoAlarmaCond2 < uTiempoAlarmaCond2 * TIMER0_A_SEGUNDOS){
+//			uContTiempoAlarmaCond2++;
+//		}
+//	}
+//	else {
+//		if (uContTiempoAlarmaCond2 > 0){
+//			uContTiempoAlarmaCond2--;
+//		}
+//	}
+//
+//
+
+//
+//
+//	/*------------------------------------------------------------------------------------*
+//	 * Contadores de las máquinas de estado de USART
+//	 *------------------------------------------------------------------------------------*/
+//	/* decremento del contador de tiempo para time out de espera de USART0 */
+//	if (uContTimeoutEsperaUSART0 != 0){
+//		uContTimeoutEsperaUSART0 --;
+//	}
+//
+//	/* decremento del contador de tiempo para time out de electura del buffer de recepcion */
+//	if (uContTimeoutLecturaRxUSART0 != 0){
+//		uContTimeoutLecturaRxUSART0 --;
+//	}
+//
+//	/* decremento del contador de tiempo para timeout de recepcion para cerrar el buffer */
+//	if (uContTimeoutRxUSART0 != 0){
+//		uContTimeoutRxUSART0 --;
+//	}
+//
+////	/* decremento del contador de tiempo para time out de envio del buffer de transmision */
+////	if (uContTimeoutTxUSART0 != 0){
+////		uContTimeoutTxUSART0 --;
+////	}
+//
+//	/* decremento del contador de tiempo para time out de electura del buffer de recepcion */
+//	if (uContTimeoutLecturaRxUSART1 != 0)
+//		uContTimeoutLecturaRxUSART1 --;
+//
+//	/* decremento del contador de tiempo para timeout de recepcion para cerrar el buffer */
+//	if (uContTimeoutRxUSART1 != 0)
+//		uContTimeoutRxUSART1 --;
+//
+//	/* decremento del contador de tiempo para time out de envio del buffer de transmision */
+//	if (uContTimeoutTxUSART1 != 0)
+//		uContTimeoutTxUSART1 --;
+
+
+
+
+
+
+/*****************************************************************************
+* Interrupcion por defecto
+*****************************************************************************/
+/** \brief	Vector de interrupción por defecto en caso de que no este la interrupción activada.
+ *
+ *	En caso de alguna falla en el codigo y se activa una interrupción no deseada, o sea \n
+ *	que no tiene su vector con su rutina asociada, cae en este vector por defecto que no \n
+ *	hace nada.
+ */
+
+ISR(__vector_default) {
+//	LCDWriteStringXY(0,0,"Error INT");
+}
+
+
+
+/*
+
+ Vectores de interrupcion Atmega32
+
+ ADC_vect -- ADC Conversion Complete
+ ANA_COMP_vect -- Analog Comparator
+ EE_RDY_vect -- EEPROM Ready
+ INT0_vect -- External interrupt 0
+ INT1_vect -- External interrupt 1
+ INT2_vect -- External interrupt 2
+ SPI_STC_vect -- Serial Transfer complete
+ SPM_RDY_vect -- Store Program Memory Ready
+ TIMER0_COMP_vect -- Timer/Counter0 Compare Match
+ TIMER0_OVF_vect -- Timer/Counter0 Overflow
+ TIMER1_CAPT_vect -- Timer/Counter Capture Event
+ TIMER1_COMPA_vect -- Timer/Counter1 Compare Match A
+ TIMER1_COMPB_vect -- Timer/Counter1 Compare MatchB
+ TIMER1_OVF_vect -- Timer/Counter1 Overflow
+ TIMER2_COMP_vect -- Timer/Counter2 Compare Match
+ TIMER2_OVF_vect -- Timer/Counter2 Overflow
+ TWI_vect  -- 2-wire Serial Interface
+ USART_RXC_vect -- USART, Rx Complete
+ USART_TXC_vect  -- USART, Tx Complete
+ USART_UDRE_vect -- USART Data Register Empty
+ */
