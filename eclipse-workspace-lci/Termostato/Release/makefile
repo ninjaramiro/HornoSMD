@@ -31,56 +31,56 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-ADC_1.lss \
+Termostato.lss \
 
 FLASH_IMAGE += \
-ADC_1.hex \
+Termostato.hex \
 
 EEPROM_IMAGE += \
-ADC_1.eep \
+Termostato.eep \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: ADC_1.elf secondary-outputs
+all: Termostato.elf secondary-outputs
 
 # Tool invocations
-ADC_1.elf: $(OBJS) $(USER_OBJS)
+Termostato.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,ADC_1.map -mmcu=atmega16 -o "ADC_1.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,Termostato.map -mmcu=atmega16 -o "Termostato.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-ADC_1.lss: ADC_1.elf
+Termostato.lss: Termostato.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S ADC_1.elf  >"ADC_1.lss"
+	-avr-objdump -h -S Termostato.elf  >"Termostato.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ADC_1.hex: ADC_1.elf
+Termostato.hex: Termostato.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_1.elf  "ADC_1.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Termostato.elf  "Termostato.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ADC_1.eep: ADC_1.elf
+Termostato.eep: Termostato.elf
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ADC_1.elf  "ADC_1.eep"
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Termostato.elf  "Termostato.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: ADC_1.elf
+sizedummy: Termostato.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega16 ADC_1.elf
+	-avr-size --format=avr --mcu=atmega16 Termostato.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) ADC_1.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) Termostato.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)

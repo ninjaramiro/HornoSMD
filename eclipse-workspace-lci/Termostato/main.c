@@ -1,5 +1,3 @@
-// http://extremeelectronics.co.in/avr-tutorials/interfacing-12-bit-spi-adc-mcp3204-with-avr-micro/
-
 
 /** \file	main.c 
  *  \brief	Archivo que llama el inicio de todaslas maquinas de estado y cierra un bucle \n
@@ -76,7 +74,7 @@ int main (void) {
 		USART_Transmit('\n');
 		USART_Transmit('\r');
 
-		LCDWriteStringXY(0,0,"MCP3204 ADC Test");
+		LCDWriteStringXY(0,0,"Prueba Termostato");
 //		LCDWriteStringXY(0,1,"result = ");
 		LCDWriteIntXY(0,1,ADC_H,5);
 		LCDWriteIntXY(7,1,ADC_L,5);

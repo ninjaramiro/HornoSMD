@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-                                    
+                                            
+    
+    
     
     
     
@@ -9,7 +11,9 @@
     
     
     <instance id="de.innot.avreclipse.configuration.app.release.968991894;de.innot.avreclipse.configuration.app.release.968991894.;de.innot.avreclipse.tool.compiler.winavr.app.release.112327758;de.innot.avreclipse.compiler.winavr.input.1839470035">
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -458,7 +462,9 @@
             <definedSymbol symbol="__AVR_DEVICE_NAME__=atmega16"/>
             <definedSymbol symbol="F_CPU=8000000UL"/>
         </collector>
-                                                                    
+                                                                                    
+    
+    
     
     
     
@@ -467,7 +473,9 @@
     
     
     </instance>
-                                
+                                        
+
+
 
 
 
