@@ -1,128 +1,1004 @@
-16:23:57 **** Build of configuration Release for project Termostato ****
+19:37:13 **** Incremental Build of configuration Release for project EJEMPLO ****
 make all 
-Building file: ../ADC.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"ADC.d" -MT"ADC.o" -c -o "ADC.o" "../ADC.c"
-Finished building: ../ADC.c
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     464 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
  
-Building file: ../USART.c
+19:38:08 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Blinky.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"USART.d" -MT"USART.o" -c -o "USART.o" "../USART.c"
-Finished building: ../USART.c
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Blinky.d" -MT"Blinky.o" -c -o "Blinky.o" "../Blinky.c"
+Finished building: ../Blinky.c
  
-Building file: ../display.c
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     464 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:41:19 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../inicioUc.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"display.d" -MT"display.o" -c -o "display.o" "../display.c"
-Finished building: ../display.c
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"inicioUc.d" -MT"inicioUc.o" -c -o "inicioUc.o" "../inicioUc.c"
+Finished building: ../inicioUc.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     464 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:45:02 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     464 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:50:49 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Blinky.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Blinky.d" -MT"Blinky.o" -c -o "Blinky.o" "../Blinky.c"
+Finished building: ../Blinky.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     462 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:52:02 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     462 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:27:09 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Blinky.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Blinky.d" -MT"Blinky.o" -c -o "Blinky.o" "../Blinky.c"
+Finished building: ../Blinky.c
+ 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+../Botones.c: In function ‘botones_init’:
+../Botones.c:27:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->uiContador_Debouncer = 0;
+             ^
+../Botones.c:28:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucEstado_Botones = ESPERANDO_BOTON;
+             ^
+../Botones.c:29:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucFlag_Boton_detectado = 0;
+             ^
+../Botones.c:30:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucNumero_Boton_detectado = 0;
+             ^
+../Botones.c: In function ‘botones’:
+../Botones.c:37:21: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  switch (str_botones->ucEstado_Botones){
+                     ^
+../Botones.c:40:18: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+    if(str_botones->ucFlag_Boton_detectado == 0){ // Solo detecto si leyeron el boton anteriormente
+                  ^
+../Botones.c:44:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 1;
+                 ^
+../Botones.c:45:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+subdir.mk:27: recipe for target 'Botones.o' failed
+                 ^
+../Botones.c:46:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:49:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 2;
+                 ^
+../Botones.c:50:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:51:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:54:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 3;
+                 ^
+../Botones.c:55:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:56:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:59:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 4;
+                 ^
+../Botones.c:60:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:61:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:64:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 5;
+                 ^
+../Botones.c:65:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:66:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:69:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 6;
+                 ^
+../Botones.c:70:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:71:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:74:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 7;
+                 ^
+../Botones.c:75:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:76:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:79:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 8;
+                 ^
+../Botones.c:80:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:81:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:90:19: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+    if (str_botones->uiContador_Debouncer == 0){
+                   ^
+../Botones.c:91:16: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     str_botones->ucEstado_Botones = DETECCION_BOTON;
+                ^
+../Botones.c:99:20: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     if (str_botones->ucNumero_Boton_detectado == 1){
+                    ^
+../Botones.c:100:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 1;
+                 ^
+../Botones.c:101:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucFlag_Boton_detectado = 1; // Levanto el flag de deteccion de boton
+                 ^
+../Botones.c:106:16: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     str_botones->ucEstado_Botones = ESPERANDO_BOTON;
+                ^
+make: *** [Botones.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+20:27:48 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+../Botones.c: In function ‘botones_init’:
+../Botones.c:28:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucEstado_Botones = ESPERANDO_BOTON;
+             ^
+../Botones.c:29:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucFlag_Boton_detectado = 0;
+             ^
+../Botones.c:30:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucNumero_Boton_detectado = 0;
+             ^
+../Botones.c: In function ‘botones’:
+../Botones.c:37:21: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  switch (str_botones->ucEstado_Botones){
+                     ^
+subdir.mk:27: recipe for target 'Botones.o' failed
+../Botones.c:40:18: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+    if(str_botones->ucFlag_Boton_detectado == 0){ // Solo detecto si leyeron el boton anteriormente
+                  ^
+../Botones.c:44:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 1;
+                 ^
+../Botones.c:45:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:46:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:49:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 2;
+                 ^
+../Botones.c:50:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:51:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:54:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 3;
+                 ^
+../Botones.c:55:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:56:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:59:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 4;
+                 ^
+../Botones.c:60:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:61:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:64:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 5;
+                 ^
+../Botones.c:65:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:66:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:69:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 6;
+                 ^
+../Botones.c:70:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:71:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:74:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 7;
+                 ^
+../Botones.c:75:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:76:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:79:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 8;
+                 ^
+../Botones.c:80:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:81:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:90:19: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+    if (str_botones->uiContador_Debouncer == 0){
+                   ^
+../Botones.c:91:16: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     str_botones->ucEstado_Botones = DETECCION_BOTON;
+                ^
+../Botones.c:99:20: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     if (str_botones->ucNumero_Boton_detectado == 1){
+                    ^
+../Botones.c:100:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 1;
+                 ^
+../Botones.c:101:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucFlag_Boton_detectado = 1; // Levanto el flag de deteccion de boton
+                 ^
+../Botones.c:106:16: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     str_botones->ucEstado_Botones = ESPERANDO_BOTON;
+                ^
+make: *** [Botones.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+20:28:04 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+../Botones.c: In function ‘botones_init’:
+../Botones.c:28:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucEstado_Botones = ESPERANDO_BOTON;
+             ^
+../Botones.c:29:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucFlag_Boton_detectado = 0;
+             ^
+../Botones.c:30:13: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  str_botones->ucNumero_Boton_detectado = 0;
+             ^
+../Botones.c: In function ‘botones’:
+../Botones.c:37:21: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+  switch (str_botones->ucEstado_Botones){
+                     ^
+../Botones.c:40:18: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+    if(str_botones->ucFlag_Boton_detectado == 0){ // Solo detecto si leyeron el boton anteriormente
+                  ^
+../Botones.c:44:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 1;
+                 ^
+../Botones.c:45:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:46:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:49:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 2;
+                 ^
+../Botones.c:50:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:51:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:54:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 3;
+                 ^
+../Botones.c:55:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:56:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+subdir.mk:27: recipe for target 'Botones.o' failed
+../Botones.c:59:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 4;
+                 ^
+../Botones.c:60:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:61:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:64:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 5;
+                 ^
+../Botones.c:65:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:66:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:69:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 6;
+                 ^
+../Botones.c:70:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:71:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:74:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 7;
+                 ^
+../Botones.c:75:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:76:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:79:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 8;
+                 ^
+../Botones.c:80:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucEstado_Botones = DETECCION_BOTON;
+                 ^
+../Botones.c:81:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->uiContador_Debouncer = TIEMPO_DEBOUNCER;
+                 ^
+../Botones.c:90:19: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+    if (str_botones->uiContador_Debouncer == 0){
+                   ^
+../Botones.c:91:16: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     str_botones->ucEstado_Botones = DETECCION_BOTON;
+                ^
+../Botones.c:99:20: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     if (str_botones->ucNumero_Boton_detectado == 1){
+                    ^
+../Botones.c:100:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucNumero_Boton_detectado = 1;
+                 ^
+../Botones.c:101:17: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+      str_botones->ucFlag_Boton_detectado = 1; // Levanto el flag de deteccion de boton
+                 ^
+../Botones.c:106:16: error: invalid type argument of ‘->’ (have ‘botones_t {aka volatile struct <anonymous>}’)
+     str_botones->ucEstado_Botones = ESPERANDO_BOTON;
+                ^
+make: *** [Botones.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+20:28:10 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
  
 Building file: ../inicioUc.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"inicioUc.d" -MT"inicioUc.o" -c -o "inicioUc.o" "../inicioUc.c"
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"inicioUc.d" -MT"inicioUc.o" -c -o "inicioUc.o" "../inicioUc.c"
 Finished building: ../inicioUc.c
  
-Building file: ../lcd.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
-Finished building: ../lcd.c
- 
 Building file: ../main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 Finished building: ../main.c
  
-Building file: ../medicion_ADC.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"medicion_ADC.d" -MT"medicion_ADC.o" -c -o "medicion_ADC.o" "../medicion_ADC.c"
-Finished building: ../medicion_ADC.c
- 
-Building file: ../spi.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"spi.d" -MT"spi.o" -c -o "spi.o" "../spi.c"
-Finished building: ../spi.c
- 
-Building target: Termostato.elf
+Building target: EJEMPLO.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Termostato.map -mmcu=atmega16 -o "Termostato.elf"  ./ADC.o ./USART.o ./display.o ./inicioUc.o ./lcd.o ./main.o ./medicion_ADC.o ./spi.o   
-Finished building target: Termostato.elf
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S Termostato.elf  >"Termostato.lss"
-Finished building: Termostato.lss
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Termostato.elf  "Termostato.hex"
-Finished building: Termostato.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
  
 Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Termostato.elf  "Termostato.eep"
-Finished building: Termostato.eep
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 Termostato.elf
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:    3660 bytes (22.3% Full)
+Program:     790 bytes (2.4% Full)
 (.text + .data + .bootloader)
 
-Data:        170 bytes (16.6% Full)
+Data:         13 bytes (0.6% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-19:30:19 **** Incremental Build of configuration Release for project Termostato ****
+20:33:22 **** Incremental Build of configuration Release for project EJEMPLO ****
 make all 
-Building file: ../main.c
+Building file: ../Botones.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
  
-Building target: Termostato.elf
+Building target: EJEMPLO.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,Termostato.map -mmcu=atmega16 -o "Termostato.elf"  ./ADC.o ./USART.o ./display.o ./inicioUc.o ./lcd.o ./main.o ./medicion_ADC.o ./spi.o   
-Finished building target: Termostato.elf
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S Termostato.elf  >"Termostato.lss"
-Finished building: Termostato.lss
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Termostato.elf  "Termostato.hex"
-Finished building: Termostato.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
  
 Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Termostato.elf  "Termostato.eep"
-Finished building: Termostato.eep
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 Termostato.elf
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:    3662 bytes (22.4% Full)
+Program:     498 bytes (1.5% Full)
 (.text + .data + .bootloader)
 
-Data:        172 bytes (16.8% Full)
+Data:         13 bytes (0.6% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-19:30:55 **** Incremental Build of configuration Release for project Termostato ****
+20:33:25 **** Incremental Build of configuration Release for project EJEMPLO ****
 make all 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 Termostato.elf
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:    3662 bytes (22.4% Full)
+Program:     498 bytes (1.5% Full)
 (.text + .data + .bootloader)
 
-Data:        172 bytes (16.8% Full)
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:34:39 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:34:47 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:37:12 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:37:14 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:38:28 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:38:30 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:11:55 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:12:14 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:12:15 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:12:53 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:12:54 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+11:01:49 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     498 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+11:02:16 **** Incremental Build of configuration Release for project EJEMPLO ****
+make all 
+Building file: ../Botones.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Botones.d" -MT"Botones.o" -c -o "Botones.o" "../Botones.c"
+Finished building: ../Botones.c
+ 
+Building target: EJEMPLO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EJEMPLO.map -mmcu=atmega32 -o "EJEMPLO.elf"  ./Blinky.o ./Botones.o ./inicioUc.o ./main.o   
+Finished building target: EJEMPLO.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EJEMPLO.elf  >"EJEMPLO.lss"
+Finished building: EJEMPLO.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EJEMPLO.elf  "EJEMPLO.hex"
+Finished building: EJEMPLO.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EJEMPLO.elf  "EJEMPLO.eep"
+Finished building: EJEMPLO.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EJEMPLO.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     496 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (0.6% Full)
 (.data + .bss + .noinit)
 
 

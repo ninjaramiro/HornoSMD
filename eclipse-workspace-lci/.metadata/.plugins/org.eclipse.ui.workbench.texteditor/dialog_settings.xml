@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="PB0" key="selection"/>
+		<item value="." key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="-&gt;"/>
 			<item value="pb0"/>
 			<item value="NC_B2_PIN"/>
 			<item value="Esperar_USART_O_TX"/>
@@ -21,6 +22,7 @@
 			<item value="cs2"/>
 		</list>
 		<list key="replacehistory">
+			<item value="."/>
 			<item value="caracter_uart"/>
 			<item value="BUFFER"/>
 		</list>

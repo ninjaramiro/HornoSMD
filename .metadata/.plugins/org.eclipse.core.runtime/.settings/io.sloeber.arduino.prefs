@@ -1,0 +1,4 @@
+Automatically\ import\ libraries=true
+Private\ Library\ Path=/home/ninja/Arduino/libraries
+Private\ hardware\ Path=/home/ninja/Arduino/hardware
+eclipse.preferences.version=1
