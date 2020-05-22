@@ -19,6 +19,7 @@ extern float flTempMedida;
 extern unsigned char uchEstadoControl;
 extern int mode;
 extern int mode_aux;
+extern unsigned int t_seg;
 
 int boton_up=1;
 int boton_down=0;
@@ -139,6 +140,8 @@ void atender_botones (void)
 			mode=MODE_STANDBY;
 			boton_up=1;
 			mode_aux=MODE_AUX_AUTO;
+			t_seg=0;
+			CLEAR_BIT(SALIDA_DIG_PORT, SALIDA_DIG_1); // Apago el horno, es decir dejo el rele abierto
 		}
 
 
