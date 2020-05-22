@@ -4,6 +4,25 @@
  *	infinito llamando a cada una.
  */
 
+/* Funcionamiento del programa:
+ *
+ * Botones:
+ *
+ * |  ON/OFF  |  RUN  |  UP  |  DOWN  |  EXIT  |
+ *
+ * Cuando se conecta a la alimentación, aparece el mensaje "Laboratorio LCI \n Horno LCI"
+ * Al presionar ON/OFF aparece el menu principal.
+ * Entonces se puede elegir entre el modo automatico y el manual con los botones UP y DOWN.
+ * Para seleccionar el modo se presiona el boton RUN.
+ * 		Modo automático: Sigue el perfil de temperatura seteado.
+ * 						 Una vez que termina de seguir esta curva, se vuelve al estado de standby.
+ * 						 Si se quiere terminar antes con el proceso, se presiona el botón EXIT.
+ * 		Modo manual: Se setea una temperatura deseada y para comenzar se presiona RUN.
+ * 					 El horno alcanzará esta temperatura y se mantendrá allí. Se podrá ver el tiempo
+ * 					 que el horno se encuentra encendido. Para salir alestado de standby se presiona EXIT.
+ *
+ */
+
 #include <avr/io.h>
 #include <avr/wdt.h>
 #include <avr/interrupt.h>
@@ -11,10 +30,8 @@
 #include <stdlib.h>
 
 #include "Blinky.h"
-
 #include "macros.h"
 #include "inicioUc.h"
-
 #include "display.h"
 #include "lcd.h"
 #include "max6675.h"
@@ -42,11 +59,11 @@ int main (void) {
 
 	//wdt_disable();			// por las dudas deshabilito el watchdog timer para el inicio de todo el programa
 	cli();						// Deshabilito las interrupciones globales
-	Inicio_Puertos ();
-    Inicio_Timer0 ();
+	Inicio_Puertos();
+    Inicio_Timer0();
     Spi_Max6675_Inicio();
 	blinky_init();
-	Inicio_Display (); 			// El display es de 2x16
+	Inicio_Display(); 			// El display es de 2x16
 	//wdt_enable(WDTO_1S);		// prendo el watchdog timer
 	control_init();
 	sei();						// Habilito las interrupciones
@@ -55,13 +72,11 @@ int main (void) {
     //Standby_Display();
 
     flTempMedida=140;
-    init_botones ();
+    init_botones();
 
 	while (1) {  // Loop infinito
 
-		//blinky(); // Es solo para que haga algo a placa. Hace titilar los 4 leds.
-
-		deteccion_botones(); // detecta los botones, cuando el pinse conecta a GND
+		deteccion_botones(); // detecta los botones, cuando el pin se conecta a GND
 
 		atender_botones();
 

@@ -70,29 +70,28 @@ int indexDisplay;
 
 void Actualizar_Display (void)
 {
-	if(mode==MODE_AUTO)
+	switch(mode)
 	{
-		Fase_Temp_Display();
-	}
+		case MODE_AUTO:
+			Fase_Temp_Display();
+		break;
 
-	if(mode==MODE_STANDBY)
-	{
-		Standby_Display();
-	}
+		case MODE_MENU:
+			Menu_Ppal_Display();
+		break;
 
-	if(mode==MODE_MENU)
-	{
-		Menu_Ppal_Display();
-	}
+		case MODE_MANUAL:
+			Manual_Display();
+		break;
 
-	if(mode==MODE_MANUAL)
-	{
-		Manual_Display();
-	}
+		case MODE_MANUAL_CONTROL:
+			Manual_Control_Display();
+		break;
 
-	if(mode==MODE_MANUAL_CONTROL)
-	{
-		Manual_Control_Display();
+		default:
+			Standby_Display();
+		break;
+
 	}
 }
 

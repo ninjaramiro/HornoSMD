@@ -31,6 +31,7 @@
 #define TIEMPO_REFLOW_DOWN		500
 #define TIEMPO_COOLING			500 // 2°C/seg, osea baja 1°C cada 1/2 seg
 #define TIEMPO_PREGUNTA_MANUAL	1000
+#define TIEMPO_MAX_MANUAL		18000000 // Son 5 horas
 
 #define TEMP_PREHEAT 			150
 #define TEMP_RAMP_TO_PEAK_MAX	217

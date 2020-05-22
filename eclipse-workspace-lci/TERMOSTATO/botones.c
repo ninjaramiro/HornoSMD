@@ -107,7 +107,7 @@ void atender_botones (void)
 			mode=MODE_MENU;
 		}
 
-		if (botones.boton_nro == boton_RUN){
+		if (botones.boton_nro == boton_RUN && mode!=MODE_STANDBY && mode!=MODE_AUTO){
 			// levantar el estado correspondiente, para que lo tome control.c
 			if(mode==MODE_MANUAL)
 			{
@@ -126,22 +126,30 @@ void atender_botones (void)
 		}
 
 
-		if (botones.boton_nro == boton_UP){
+		if (botones.boton_nro == boton_UP && mode!=MODE_STANDBY && mode!=MODE_AUTO){
 			boton_up=1;
 		}
 
-		if (botones.boton_nro == boton_DOWN){
+		if (botones.boton_nro == boton_DOWN && mode!=MODE_STANDBY && mode!=MODE_AUTO){
 			boton_down=1;
 		}
 
 
 		if (botones.boton_nro == boton_EXIT){
-			uchEstadoControl=ESTADO_STANDBY;
-			mode=MODE_STANDBY;
+			if(mode==MODE_MENU)
+			{
+				uchEstadoControl=ESTADO_STANDBY;
+				mode=MODE_STANDBY;
+			}
+			if(mode==MODE_AUTO || mode==MODE_MANUAL || mode==MODE_MANUAL_CONTROL)
+			{
+				uchEstadoControl=ESTADO_MENU;
+				mode=MODE_MENU;
+				mode_aux=MODE_AUX_AUTO;
+				CLEAR_BIT(SALIDA_DIG_PORT, SALIDA_DIG_1); // Apago el horno, es decir dejo el rele abierto
+			}
 			boton_up=1;
-			mode_aux=MODE_AUX_AUTO;
 			t_seg=0;
-			CLEAR_BIT(SALIDA_DIG_PORT, SALIDA_DIG_1); // Apago el horno, es decir dejo el rele abierto
 		}
 
 

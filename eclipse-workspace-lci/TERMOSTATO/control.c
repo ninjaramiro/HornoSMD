@@ -31,8 +31,8 @@ float flTempDeseada=70;
 
 extern int boton_up;
 extern int boton_down;
-extern int boton_exit;
 extern int mode_aux;
+extern unsigned int t_seg;
 //****************************************************************************
 
 void control_temperatura(void)
@@ -197,7 +197,6 @@ void control_temperatura(void)
 		case ESTADO_COOLING:
 			if (uContControlAuto == 0)
 			{
-				// BAJAR LA TEMPERATURA DOS GRADO (-2°C)
 				if (flTempMedida <= temp_deseada)
 				{
 					SET_BIT(SALIDA_DIG_PORT, SALIDA_DIG_1);
@@ -248,7 +247,10 @@ void control_temperatura(void)
 
 				uContControlAuto=TIEMPO_PREGUNTA_MANUAL;
 			}
-
+			if(t_seg>TIEMPO_MAX_MANUAL)
+			{
+				uchEstadoControl=ESTADO_MENU;
+			}
 		break;
 
 
